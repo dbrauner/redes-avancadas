@@ -1,0 +1,39 @@
+Questionário para o Grau B. Redes Avançadas. Entregar no dia da prova com as respostas.
+1/ O que você entende por VLAN?
+
+VLAN são redes virtuais locais, uma rede logicamente independente dentro da rede física local. Com a VLAN é possível criar domínios de broadcast separados dentro de uma mesma rede física com uma rede virtual.
+2/ Comente 3 benefícios de uma VLAN, seja com 1 ou mais switches.
+Com VLANs é possível segmentar a rede em sub-redes, cada uma isolada logicamente, ou ainda fazer uma rede única a partir de redes físicas separadas. 
+Também é possível economizar em número de equipamento, pois um comutador (switch) com duas VLANs é equivalente a ter dois switches separados.
+3/ Quais as vantagens de SDN sobre equipamentos de rede tradicionais?
+
+4/ Na sua opinião, quais as desvantagens de se usar SDN? Podes também comentar os problemas aqui.
+5/ Alta vazão de rede e baixa latência sempre andam juntos, um representa o outro? Argumente a sua
+resposta com exemplos.
+6/ O que você entende por: administration plane, control plane e data plane?
+7/ Como você planeja um sistema de balanceamento de carga utilizando SDN.
+8/ Muitos pesquisadores estão estudando e projetando o que será a tecnologia 5G. Nesse contexto, quais
+os problemas da 4G, ou seja, o que ela não atende de maneira eficaz?
+9/ Faça uma tabela ou um gráfico comentando sobre diferentes tecnologias wireless e seu escopo de
+cobertura. Comentar pelo menos 5 tecnologias.
+10/ Como você descreve os requisitos para um sistema cyber-físico funcionar (olhar a parte de Internet
+táctil)?
+11/ Quais são os desafios na área de int? No mínimo 3.
+12/ Trabalhamos em aula 2 exemplos de estrutura de middleware IoT. Desenhe os 2 e comente o seu
+funcionamento.
+13/ Quais as vantagens de se empregar o modelo EPCglobal? Tanto para a pessoa da indostria, quanto
+para o usuário final.
+14/ Quais são as APIs, sistemas, mais comuns para o desenvolvimento de aplicações IoT. Explique em 2 ou
+3 linhas cada um deles.
+15/ Qual o contexto de utilização de COAP?
+16/ Explique de forma gráfica e textual, como funcionam as notificações de COAP.
+16/ Quais as vantagens da facilidade de “Discovery" de COAP?
+17/ Quais os problemas da Internet atual? Cite e comente pelo menos 3 deles.
+18/ Existem 2 abordagens para a nova Internet: faze-la toda do zero ou remodelar a corrente com novas
+ideias. Qual delas parece ser a melhor para você e por quê?
+19/ Quais são os requisitos da Internet do Futuro? Comente pelo menos 3 deles.
+20/ Você concorda que a nova Internet será muito mais voltada para software do que para hardware. Ou
+seja, teremos uma aplicação de SDN em vários lugares e camadas. Tente montar um posicionamento
+quanto a essa questão.
+21/ Faça um parágrafo sobre a sua apresentação na última aula. Depois dessa parágrafo, redija 2 ou mais
+linhas falando criticamente como você julgaria a sua apresentação e os principais desafios de faze-la.

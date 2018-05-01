@@ -1,0 +1,104 @@
+estudo prova
+
+SDN: Existe um problema para fazer a escalabilidade, além de ter problema de segurança e confiabilidade, pois uma vez que o gerenciador é invadido, a rede toda pode estar comprometido, o invasor terá acesso à toda rede.
+
+arquitetura centralizada do SDN também é um grande desafio.
+
+IPv4 - identificador de 32 bits, 
+Camada de rede: realiza fragmentação dos dados, e reordena dados para passar para a camada de transporte.
+acrescenta o cabecalho de 32 bit, ToS - pouco utilizado, identificadores de fragmentação,
+TTL - contador para ver quantas vezes o dado pode ser passado adiante (hops)
+Checksum vem depois, o qual deve ser calculado a cada vez, visto que o TTL muda.
+
+o datagrama sempre possui um tamanho limite (532), então o pacote a ser enviado sempre deve considerar o tamanho do cabeçalho ipv4 antes, que no caso é 20 bytes.
+
+
+suporte para qos é limitado e não implementado, além é claro da necessidade de novas faixas de ip.
+32 bits é pouco já.
+autenticação e cripto somente pelas camadas de cima.
+roteamento mais eficiente, coexistencia.
+128 bits, cabeçalho simples, qos, autenticação e cripto.
+não precisa de NAT, tem endereços suficientes.
+sem fragmentação, pois pode mandar o datagrama que quiser.
+sem opções, o que permite maior agilidade no roteamento.
+sem checksum.
+
+endereçamento dos tipos:
+unicast - ponto a ponto, de/para.
+multicast - conjunto de computadores, 
+
+precisa de interoperabilidade.  ipv6 em rede ipv4, é tunelamento. pilha dupla foi sugerida para fazer a transição. e tradução que é de um para outro. possível perda de parametros.
+VPN
+
+plano era pilha dupla .
+6in4: broker, 6to4, isatap, teredo.
+broker é provedor de ipv4, 6to4 é para redes.
+traduçõa é quando um dos lados não fala ipv6. perda de dados e semantica.
+
+
+IGMP - gerencia um grupo multicast - protocolo. limita o tráfego, usado para registrar dinamicamente cada host em um grupo multicast.
+hosts entram e saem da rede silenciosamente.
+
+
+telefonia -
+começou com simplex, depois o walkie talkie - half duplex.
+IMTS trouxe a primeira opção, com duas frequencias distintias, podedno falar e escutar ao mesmo tempo.
+limitado o número de canais por estação base, alguns ficavam de fora.
+
+AMPS - primeira geração, 1g
+TDMA, GSM, CDMA - digital, segunda geração 2g
+GPRS - 2,5 uma atualização.
+
+AMPS - divisão em microceluares para mais usuários.
+estação base de transmissão. 
+handoff - 300ms - estação base pergunta potencia do sinal para estações adjacentes. telefone é avisado de base com melhor sinal. as celulas adjacentes não usam mesma frequencia, logo o processo de troca que demora os 300ms.
+full-duplex com FDM para separar canais.
+telefone escuta canal de paging, que é de broacast, antena pergunta por número, número responde e conexão é feita.
+
+DAMPS: utiliza também TDM na multiplexação para permitir mais usuários no canal. digitalizado. 
+handoff é diferente - 2/3 do tempo nem envia e nem recebe, esse tempo é usado para medir qualidade da linha, ele mesmo avisa o MTSO de quebra de conexão. MAHO é técnica para fazer o handoff.
+
+GSM: possui canais mais largos que DAMPS, trabalhando numa frequencia que permite maior taxa de transmissão. usa FDM e TDM também como dasmps. frame até 8.
+
+CDMA permite usar toda a frequencia todo o tempo, separando as multiplas transmissões simultaneass com teorias de codificação. largamente usado nos EUA. extrai-se o sinal desejado e se rejeita o resto. 
+divisão em intervalos chamados chips. largura de banda efetiva é maior, resolvendo problema de alocação de banda.
+problema: receptor precisa conhecer o transmissor e deve ouvir todos os possíveis transmissores de uma única vez e rodar o algortimo de decodificação. 
+
+
+segurança em wireless - filtro de MAC -> MAC spoofing, se passar pelo MAC.
+WEP ->controle de dados, integridade e confiabilidade, 
+chave de 40 bits, com vetor de inicialização e criptografados com RC4. quebra do algortimo que é fragi.
+se tem a chave, os dados podem ser interceptados e alterados. chaves são estáticas. 2001 foi quebrado.
+
+quebra com número de pacotes coletados.
+pode ser reforçado com chaves maiores e troca de chave. chave maior > performance ruim.
+problema ainda é algoritmo.
+
+TKIP - chave trocada a cada tanto de pacotes. 
+Acesss point - faz a autenticaçaõ do cliente com o servidor, pega a indetidade, confere com o servidor e permite trafego. usa PSK, chave de inicialização, depois troca a chave periodicamente. 
+wpa2 melhor algoritmo, com TKIP, sem AP, 
+
+CSMA/CD no wireless é um problema por causa do terminal não visível ao transmissor. um transmissor pode não saber da existencia de um host em interferencia. normalmente usado para redes locais. estação base conectada na rede.
+
+ad-hoc sem base, nós transmitem para outros nós, no estilo per-to-per. auto-organizados.
+
+single-hop é WIFI, 
+
+CA - colision avoidance, ou seja, evita, atraves de troca de frames iniciais, sender manda RTS, com tamanho do dado. responde com CTS, se recebe um CTS que não é meu, espero o tempo de transmissão. se outro vê RTS mas o CTS é perdido, manda no lugar.
+com ACK, 
+
+
+SDN - virtualização de elementos da rede, roteadores, switches e etc. administração por software. flexibilidade na adm. programabilidade da rede.
+
+SDN permite inovação mais rápida, com interfaces abertas e apoio da comunidade. com varios planos de controle .;
+
+aplicações acessam os controladores SDN de forma transparente atraves de northbound apis, estes se conectam com os dispositivos fisicos com southbounds apis. 
+
+network OS é tendencia com o SDN, aplicações acessam 
+
+OF é implementação do SDN, plano de controle é separado do plano de dados. controle é inteligencia da rede, rotas de fluxo. dados é encaminhar pacotes na rede. switches podem usar o mesmo plano de controle. alta taxa de pacotes enviados, especialização do encaminhamento apos definicação. controlador tem visão da topologia da rede.
+
+após definição, pacotes são comutados diretamente, aumentando o desempenho.
+
+QoS em redes virtuais. desvio de trafego para controle de consumo de energia, load balancer.
+

@@ -1,0 +1,90 @@
+desvantagens de SDN
+
+Exemplos de API norte e sul, ambos comentados (explicar apis)
+
+Exemplos de hardware OpenFlow/SDN - controladores, switches, roteadores.
+
+
+
+
+Prova: 
+- ideia geral de redes
+cpu para velocidade das redes, latencia, overhead de protocolo, tempo de rede, tempo de acesso a rede. só de ida a um ponto a outro.
+largura de banda, unidade de tempo, tempo de transferencia (latencia + dados / banda)
+- ipV4
+rede: naming/adresssing (dar enderecos), congestionamento, roteamento, fragmentação.
+No ipv4 tem fragmentação, ipv6 não. 
+32 endereçamento, tos - cabeçalho, não implementado. 
+fragmentação: ipv4 gera diversos pacotes ip que a aplicação mandou pela camada de transporte.
+a camada de rede pega todos os pacotes e monta para mandar para a camada de transporte.
+cabeçalho tem 20 bytes, mais opções. Problema: datagrama não é possível saber o tamanho exato, porque pode ou não ter opções.
+- ipv6
+128 bits no endereçamento - suporte a autentificação e criptografia. cabecalho tamanho fixo -> otimização na velocidade de rotemaneto dos roteadores, porque eles sabem exatamete o tamanho esperado.
+não tem fragmentação, suporta pacotes de tamanhos maiores.
+
+- Enviando dados ipv6 sobre redes ipv4
+tradução, pilha-dupla, tunelamento (mecanismos de tunelamento são mais eficazes para que coexistam os dois protocolos, de forma muito mais natural)
+tradução e pd são dificeis de mantes semanticas, pois caracteristicas fundamentais existem.
+pd foi criada para fazer uma transiçõa, que nunca ocorreu, eis o problema.
+
+- ponto a ponto, multi-ponto
+PaP: sender e receiver bem definidos - 
+MP: broadcast, e multicast (para determinado grupo).
+problema do broadcast : consumo de largura de banda - segurança, pois todos recebem. 
+multicast : ponto a ponto para multicast com um for (laço) logicamente.
+
+- IGMP
+gerencia comunicações multicast - determinado grupo - qualquer pessoa pode entrar e sair (sem autenticaoca). Mensagem para varios nós, com anonimato.
+
+- Telefonia celular
+Simplex, half duplex, full duplex.
+(direção unica, ora vai e ora vem - walkie-talkie, ethernet com rx e tx)
+	IMTS, AMPS, DAMPS, GSM, CDMA
+damps e gsm 
+multiplexação - fdm e tdm, frequencia e tempo
+fdm : todo o espectro de frequencia, utilizo uma frequencia 
+tdm : orquestração, fornecendo uma parcela de tempo para cada usuário num intervalo.
+
+handoff amps: antena, no damps tem o maho - handoff assistido pelo proprio dispositivo, ele mesmo detecta que está se distanciando. 
+cdma x gsm : frequencia e velocidade. chip de comunicação com código.
+gsm - fdm quanto maior a frequencia, maior a largura de banda (taxa) 
+
+- Redes wireless
+	- Ad hoc
+	- infraestrutura
+acess point : normalmente está conectado à uma rede cabeada, que é uma rede normal.
+adhoc é feita sob demanda, cada nó tem um raio de cobertura, redes são feitas on-the-fly, conectadas por single-hop, a informação vai de ponto a ponto passando adiante.
+redes veiculares é usado, 
+infraestrtura é cliente/servidor, o adhoc é estilo peer-to-peer
+	- Autenticação (wep, wpa2) criptografia pelo mac adresss
+autenticação por mac: fragil, pois é possível se passar por outro mac programaticamente
+por wep: criptografia simetrica muito fraca, em composicao de algoritmo e tamanho de chave. brute force pode ser usado para quebrar, o Shamir publicou artigo que desmascara. 
+wep pode ser usado ainda se tu mudar a senha frequentemente (mas deve ser feito manual). ou aumentar a chave. mas o algoritmo RC4 é fraco, o que pode quebrar a chave, mas o problema da chave grande é também desempenho de algoritmo.
+por wpa: Cliente, AP, servidor de autenticação (RADIUS). cliente se conecta com radius, o AP se conecta com o radius e depois o radius conecta os dois, o problema é ter este servidor com o radius, muito complicado.
+wpa2: sem o servidor de autenticaçõa, que troca a senha de forma automatica, com algortimo mais complexo, usando o pre-shared-key, que é a senha de primeiro acesso.
+	- CSMA/CA
+CSMA/Cd - colision detected, na comunicação cabeada é possível escutar o meio e saber se teve colisão ou não. na atmosfera isto é um problema, pois o dado vai mudar, pela frequencia de envio e recebimento, além de 
+rts cts - envio rts  e espero receber um cts daí eu envio. se uma delas se perde .
+colision avoidance funciona num protocolo não orientado a conexão, mas com ack. numa atmosfera com ruido isto gera muita ocupação de banda e retransmissão.
+- SDN 
+	- conceito
+	- arquitetura
+	- exemplo de aplicação: LB
+	foto.
+	load balancing, como trabalhar com sdn.
+	- prós e contras
+
+System area network
+baixa latencia e alta largura de banda, colocando maximo de coisas em hardware.
+	- Infiniband
+	- Problemas de Ethernet e TCP/IP 
+
+	- RDMA, bypass o SO
+	da camada de usuário para camada de rede.
+	registro de memória, pega janela e faz operações de write e read na memória.
+	- Vantagens e problemas de Infiniband.
+velocidade - problema: aplicações usam sockets, IB é diferente - deve ser feito compatibilidade.
+exemplo: aplicação ethernet com socket - infinisocket - implementar socket co minfiniband.
+virtualizar a placa infiniband para parecer uma ethernet
+
+direto daí é com Verbs API.

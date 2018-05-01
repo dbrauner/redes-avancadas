@@ -1,0 +1,51 @@
+Questionário para o GA - Redes Avançadas:
+1/ Comente 3 diferenças entre os modelos de referência TCP/IP e ISO/OSI.
+
+2/ O que você entende por latência e quais os subtempos que a compõe?
+
+3/ Por que a velocidade de um processador normalmente influi na velocidade dos aplicativos que usam a
+rede de comunicação?
+
+4/ O cabeçalho IP possui um campo chamado “Type of Service”, o qual seria pertinente para implementar
+QoS. Por que mesmo assim IPv4 é tido como um protocolo que não oferece QoS?
+5/ Por que é necessário recomprar o checksum a cada roteador que um pacote passa?
+
+6/ Explique como funciona a fragmentação em nível de protocolo IPv4.
+
+7/ Comente 4 características novas do IPv6 em relação ao IPv4.
+QoS, fragmentação não é necessária, possui autenticação, variedade muito maior de endereços, logo não precisa de NAT, sem opções que precisam ser verificadas e sem checksum. 
+8/ O IPV6 tem um cabeçalho de tamanho fixo. Qual ou quais as vantagens dessa decisão de projeto?
+a vantagem é o desempenho. pacotes diferecionados diretametne.
+9/ Existem basicamente 3 técnicas de transição de IPV4 para IPv6. Comente e dê exemplos de 2 delas.
+tunelamento (6in4), pilha dupla e tradução.
+10/ Como é possível implementar comunicação ponto-multiponto com ajuda do hardware?
+laço for para os endereços de destino, repetindo a menssagem para cada um.
+11/ Quais as possíveis vantagens de multicast em relação a broadcast?
+consumo de banda, e segurança, todos recebem dados e as vezes não se quer isto para algo sigiloso.
+12/ Qual é o modelo Multicast usado no IPv4?
+difusão por comutadores - switches roteadores, 
+conceito de grupo, RFC 1112, hosts entram e saem, do grupo, identidade não é conhecida, sem autorização para entrar no grupo.
+13/ Quais as características mais marcantes de uma rede chamada de Rede de Sistema, ou SAN.
+
+14/ Olhando o site do Top500, quais as 3 tecnologias de rede mais utilizadas hoje em dia.
+
+15/ Comente sobre as fontes de sobrecarga do protocolo TCP/IP.
+
+16/ O que você entende por handoff e qual a diferença entre o Handoff no AMPS e no D-AMPS?
+MAHO, base e dispositivo.
+17/ Comente como funciona o GSM e o CDMA e por que GSM, mesmo sendo uma tecnologia pior em
+termos de suporte a largura de banda, foi a que saiu vencedora e é uma das mais usadas mundo a fora.
+18/ O que você entende por CSMA/CA?
+colision avoidance.
+19/ É possível configurar uma rede Wireless com criptografia WPA2 sem usar RADIUS? Como?
+utilizando o PSK, pre-shared key.
+20/ Quais os principais problemas da tecnologia de criptografia WEP?
+algoritmo fraco, chave com tamanho pequeno, já foi quebrado por algortimos quebra pedra, pode ser quebrado coletando conjunto de pacotes.
+21/ Comente 3 situações que SDN auxilia a tarefa de administração de redes de computadores.
+escalabilidade, adicionar novos nós pode ser uma tarefa complicada, dimunir demanda de um servidor para ele ser desligado, fazer balanceamento de carga.
+22/ Qual a relação que você vê entre SDN e consumo de energia elétrica?
+desviar pacotes para não sobrecarrregar maquina ou desviar trafego para desligar ela. migração de fluxo, alocação de recursos.
+23/ Num futuro onde o mundo dos roteadores será 100% OpenFlow, o que vai possivelmente diferenciar um
+roteador de um fabricante de um roteador de outro fabricante?
+24/ Faça um resumo de 2 parágrafos sobre a dinâmica realizada em sala de aula na Aula 8 de Redes
+Avançadas. 
